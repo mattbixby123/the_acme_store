@@ -1,5 +1,5 @@
 //root index file
-// require('dotenv').config();
+require('dotenv').config(); // line needed for DOTENV to work - this is the only call needed to make the client line work for the db index.js
 const express = require('express'); // line 1 or 2 for express
 const app = express(); // line 2/2 for express
 const {
@@ -20,7 +20,8 @@ app.listen(port, ()=> {
 // middleware - needed when integrating express for listening
 app.use(express.json());
 app.use(require('morgan')('dev')); //Log the requests as they come in with morgan
-// app.use('/api', require('./routes')); //call needed to link the express routes
+
+app.use('/api', require('./api')); //call needed to link the express routes
 
 
 //init function

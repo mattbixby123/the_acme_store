@@ -2,7 +2,7 @@
 
 // client - a node pg client
 const pg = require('pg');
-const client = new pg.Client(process.env.DB_NAME || 'postgres://localhost/the_acme_store');
+const client = new pg.Client(`postgres://localhost/${process.env.DB_NAME}`);
 // extra imports for dependency usages
 const uuid = require('uuid');
 const bcrypt = require('bcrypt');
