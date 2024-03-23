@@ -25,9 +25,10 @@ router.get('/:user_id/favorites', async (req,res, next) => {
 //  returns the created favorite with a status code of 201
 router.get('/:user_id/favorites', async (req,res, next) => {
   try {
+    const { product_id } = req.body; // req.body.product_id
     res.status(201).send(await createFavorite({
       user_id: req.params.user_id,
-      product_id: req.body.product_id
+      product_id: product_id
     }));
   } catch (error) {
     next(error)
